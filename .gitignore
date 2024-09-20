@@ -107,3 +107,4 @@ Control.system-ca-bundle
 GitHub.sublime-settings
 
 .vscode/*
+/.idea/vcs.xml
