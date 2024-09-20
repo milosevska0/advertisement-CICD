@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 from pathlib import Path
 import environ
+import dj_database_url
 import os
 
 
@@ -78,18 +79,11 @@ WSGI_APPLICATION = 'advertisement.wsgi.application'
 env = environ.Env()
 environ.Env.read_env()
 
+DATABASE_URL = os.getenv('DATABASE_URL')
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env('DATABASE_NAME'),
-        'USER': env('DATABASE_USER'),
-        'PASSWORD': env('DATABASE_PASSWORD'),
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
+    'default': dj_database_url.config(default=DATABASE_URL)
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
