@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: advertisement-config
+  namespace: advertisement-namespace
+data:
+  POSTGRES_DB: "advertisement_db"
+  POSTGRES_URL: postgres-service.advertisement-namespace.svc.cluster.local

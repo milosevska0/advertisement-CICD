@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: advertisement-deployment
+  namespace: advertisement-namespace
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: advertisement
+  template:
+    metadata:
+      labels:
+        app: advertisement
+    spec:
+      containers:
+        - name: advertisement
+          image: frosinamiloshevska/advertisement:latest
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+          ports:
+            - containerPort: 8000
+          env:
+            - name: DATABASE_URL
+              value: "postgres://$(POSTGRES_USER):$(POSTGRES_PASSWORD)@advertisement-service.advertisement-namespace.svc.cluster.local:5432/$(POSTGRES_DB)"
+          envFrom:
+            - configMapRef:
+                name: advertisement-config
+            - secretRef:
+                name: advertisement-secret
