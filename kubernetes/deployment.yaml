@@ -24,7 +24,7 @@ spec:
             - containerPort: 8000
           env:
             - name: DATABASE_URL
-              value: "postgres://$(POSTGRES_USER):$(POSTGRES_PASSWORD)@advertisement-service.advertisement-namespace.svc.cluster.local:5432/$(POSTGRES_DB)"
+              value: "postgres://$(POSTGRES_USER):$(POSTGRES_PASSWORD)@$(POSTGRES_URL):5432/$(POSTGRES_DB)"
           envFrom:
             - configMapRef:
                 name: advertisement-config
