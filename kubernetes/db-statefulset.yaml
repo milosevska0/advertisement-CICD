@@ -13,6 +13,7 @@ spec:
     metadata:
       labels:
         app: postgres
+        namespace: bookproject-cicd
     spec:
       containers:
         - name: postgres
@@ -36,6 +37,9 @@ spec:
                 secretKeyRef:
                   name: postgres-secret
                   key: POSTGRES_PASSWORD
+          ports:
+            - containerPort: 5432
+              name: postgres-port
           volumeMounts:
             - name: postgres-persistent-storage
               mountPath: /var/lib/postgresql/data
