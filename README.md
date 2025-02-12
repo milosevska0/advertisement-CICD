@@ -60,17 +60,7 @@ Ensure you have the following installed:
 2. **Apply the Kubernetes manifests** located in the `kubernetes` folder:
 
     ```bash
-    kubectl apply -f namespace.yaml \
-                  -f db-configmap.yaml \
-                  -f db-secret.yaml \
-                  -f db-pvc.yaml \
-                  -f db-statefulset.yaml \
-                  -f db-service.yaml \
-                  -f configmap.yaml \
-                  -f secret.yaml \
-                  -f deployment.yaml \
-                  -f service.yaml \
-                  -f ingress.yaml
+   kubectl apply -f namespace.yaml -f db-configmap.yaml -f db-secret.yaml -f db-pvc.yaml -f db-statefulset.yaml -f db-service.yaml -f configmap.yaml -f secret.yaml -f deployment.yaml -f service.yaml -f ingress.yaml
     ```
 
 This will set up your PostgreSQL database, Django application, and any other resources necessary for the project.
