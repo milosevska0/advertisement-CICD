@@ -13,7 +13,7 @@ spec:
     metadata:
       labels:
         app: postgres
-        namespace: bookproject-cicd
+        namespace: advertisement-namespace
     spec:
       containers:
         - name: postgres
